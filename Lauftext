@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Lauftext</title>
+  <style>
+    .marquee {
+      color: orange;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<marquee class="marquee" behavior="scroll" direction="left">
+  Spengler Electronic AG
+</marquee>
+
+</body>
+</html>
