@@ -5,21 +5,48 @@
   <title>Lauftext Editor</title>
 </head>
 <body>
-  <h1>Lauftext ändern</h1>
+  <h1>Lauftext bearbeiten</h1>
 
-  <input type="text" id="eingabe" placeholder="Neuer Lauftext" style="width: 300px;">
+  <label>Text:</label><br>
+  <input type="text" id="eingabe" style="width:300px;"><br><br>
+
+  <label>Schriftgrösse (z. B. 24px):</label><br>
+  <input type="text" id="schriftgroesse" placeholder="24px"><br><br>
+
+  <label>Schriftfarbe:</label><br>
+  <input type="color" id="farbe"><br><br>
+
+  <label>Schriftart:</label><br>
+  <select id="schriftart">
+    <option value="Arial">Arial</option>
+    <option value="Verdana">Verdana</option>
+    <option value="Courier New">Courier New</option>
+    <option value="Times New Roman">Times New Roman</option>
+    <option value="Comic Sans MS">Comic Sans MS</option>
+  </select><br><br>
+
+  <label>Scroll-Geschwindigkeit (z. B. 5):</label><br>
+  <input type="number" id="geschwindigkeit" min="1" max="100"><br><br>
+
   <button onclick="speichern()">Speichern</button>
 
   <script>
     function speichern() {
-      const text = document.getElementById('eingabe').value;
-      if (text.trim() === '') {
-        alert('Bitte gib einen Text ein!');
-        return;
-      }
+      const text = document.getElementById('eingabe').value.trim();
+      const groesse = document.getElementById('schriftgroesse').value.trim();
+      const farbe = document.getElementById('farbe').value;
+      const schriftart = document.getElementById('schriftart').value;
+      const geschwindigkeit = document.getElementById('geschwindigkeit').value;
+
+      if (!text) return alert('Bitte gib einen Text ein!');
 
       localStorage.setItem('lauftext', text);
-      alert('Lauftext gespeichert! Jetzt die Lauftext-Seite neu laden 💥');
+      if (groesse) localStorage.setItem('schriftgroesse', groesse);
+      localStorage.setItem('farbe', farbe);
+      localStorage.setItem('schriftart', schriftart);
+      if (geschwindigkeit) localStorage.setItem('geschwindigkeit', geschwindigkeit);
+
+      alert('Gespeichert! Jetzt Lauftext-Seite neu laden 🚀');
     }
   </script>
 </body>
