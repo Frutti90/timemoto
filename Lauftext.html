@@ -7,35 +7,36 @@
     body {
       margin: 0;
       padding: 0;
+      height: 100vh;
       overflow: hidden;
     }
+
     marquee {
+      position: absolute;
+      top: 0;
       width: 100%;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      white-space: nowrap;
     }
   </style>
 </head>
 <body>
   <marquee id="lauftext" behavior="scroll" direction="left">
-    Standardtext – falls nichts gespeichert ist
+    Spengler Electronic AG Switzerland
   </marquee>
 
   <script>
     const text = localStorage.getItem('lauftext') || 'Standardtext';
-    const color = localStorage.getItem('farbe') || '#000';
-    const font = localStorage.getItem('schriftart') || 'Arial';
-    const size = localStorage.getItem('schriftgroesse') || '24px';
-    const speed = localStorage.getItem('geschwindigkeit') || '5';
+    const farbe = localStorage.getItem('farbe') || '#000';
+    const schriftart = localStorage.getItem('schriftart') || 'Arial';
+    const schriftgroesse = localStorage.getItem('schriftgroesse') || '24px';
+    const geschwindigkeit = localStorage.getItem('geschwindigkeit') || '5';
 
     const el = document.getElementById('lauftext');
     el.innerText = text;
-    el.style.color = color;
-    el.style.fontFamily = font;
-    el.style.fontSize = size;
-    el.scrollAmount = speed;
+    el.style.color = farbe;
+    el.style.fontFamily = schriftart;
+    el.style.fontSize = schriftgroesse;
+    el.setAttribute('scrollamount', geschwindigkeit); // wichtig!
   </script>
 </body>
 </html>
