@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Lauftext</title>
-  <style>
-    .marquee {
-      color: orange;
-      font-size: 40px;
-      font-weight: bold;
-    }
-  </style>
 </head>
 <body>
+  <h1>Lauftext</h1>
+  <marquee id="lauftext" behavior="scroll" direction="left">
+    Spengler Electronic AG
+  </marquee>
 
-<marquee class="marquee" behavior="scroll" direction="left">
-  Spengler Electronic AG
-</marquee>
-
+  <script>
+    const gespeicherterText = localStorage.getItem('lauftext');
+    if (gespeicherterText) {
+      document.getElementById('lauftext').innerText = gespeicherterText;
+    }
+  </script>
 </body>
 </html>
