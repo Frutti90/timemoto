@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Lauftext Editor</title>
+</head>
+<body>
+  <h1>Lauftext ändern</h1>
+
+  <input type="text" id="eingabe" placeholder="Neuer Lauftext" style="width: 300px;">
+  <button onclick="speichern()">Speichern</button>
+
+  <script>
+    function speichern() {
+      const text = document.getElementById('eingabe').value;
+      if (text.trim() === '') {
+        alert('Bitte gib einen Text ein!');
+        return;
+      }
+
+      localStorage.setItem('lauftext', text);
+      alert('Lauftext gespeichert! Jetzt die Lauftext-Seite neu laden 💥');
+    }
+  </script>
+</body>
+</html>
